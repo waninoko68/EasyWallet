@@ -1,6 +1,5 @@
 package wm.easywallet;
 
-import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -10,7 +9,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -39,14 +37,7 @@ public class MainActivity extends AppCompatActivity {
         db = helper.getWritableDatabase();
         //totalHelper = new TotalDb(this);
         //totalDb = totalHelper.getWritableDatabase();
-        ContentValues cv = new ContentValues();
-        EditText text = findViewById(R.id.detail);
-        EditText in = findViewById(R.id.income);
-        cv.put(Db.COL_TEXT,text.getText().toString());
-        cv.put(Db.COL_PICTURE,"ic_expense.png");
-        cv.put(Db.COL_TOTAL,in.getText().toString());
-        cv.put(Db.COL_EXPRESS,"+");
-        db.insert(Db.TABLE_NAME,null,cv);
+       
 
         loadDb();
         adapter = new Adapter(this,R.layout.item,ItemList);
